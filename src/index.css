@@ -1,0 +1,97 @@
+/* 컬러 팔레트 디자인 시스템.md 의 CSS 변수 */
+:root {
+  /* Primary Colors */
+  --color-primary: #FC6112;
+  --color-primary-light: #FF8A4D;
+  --color-primary-dark: #D94E08;
+
+  /* Secondary Colors */
+  --color-secondary: #1E1E3F;
+  --color-accent: #FC6112;
+
+  /* Background Colors */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F5F5F7;
+
+  /* Text Colors */
+  --color-text-primary: #222222;
+  --color-text-secondary: #1E1E3F;
+  --color-text-muted: #8A8A94;
+
+  /* Border Colors */
+  --color-border: #D9D9DE;
+
+  /* Interactive Colors */
+  --color-button-primary: #1E1E3F;
+  --color-button-hover: #34345E;
+  --color-link: #222222;
+  --color-link-hover: #FC6112;
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #FF7A30;
+    --color-primary-light: #FF9A5C;
+    --color-primary-dark: #FC6112;
+
+    --color-secondary: #E6E6F5;
+
+    --color-bg-primary: #12121F;
+    --color-bg-secondary: #1C1C2E;
+
+    --color-text-primary: #F2F2F5;
+    --color-text-secondary: #FFFFFF;
+    --color-text-muted: #9A9AA8;
+
+    --color-border: #33334A;
+
+    --color-button-primary: #FC6112;
+    --color-button-hover: #FF7A30;
+    --color-link: #F2F2F5;
+    --color-link-hover: #FF7A30;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --color-text-muted: #5A5A66;
+  }
+}
+
+/* CSS 초기화 */
+* {
+  box-sizing: border-box;
+}
+
+/* HTML, Body 초기화 */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+/* Root 앱 컨테이너 설정 */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 포커스 접근성 */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media print {
+  html, body {
+    background: none;
+    color: var(--color-text-primary);
+  }
+}
