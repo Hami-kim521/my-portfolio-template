@@ -11,7 +11,7 @@ import IconButton from '@mui/material/IconButton';
 const CONTACTS = [
   { id: 'email', Icon: EmailOutlinedIcon, text: 'kimhami521@naver.com', href: 'mailto:kimhami521@naver.com' },
   { id: 'phone', Icon: PhoneOutlinedIcon, text: '010-9205-6747', href: 'tel:01092056747' },
-  { id: 'location', Icon: LocationOnOutlinedIcon, text: '부산', href: null },
+  { id: 'location', Icon: LocationOnOutlinedIcon, text: 'Busan, Korea', href: null },
 ];
 
 const SOCIALS = [
