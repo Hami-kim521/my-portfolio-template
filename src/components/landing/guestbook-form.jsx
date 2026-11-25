@@ -68,7 +68,7 @@ export default function GuestbookForm({ onSubmit }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (values.email && !EMAIL_PATTERN.test(values.email.trim())) {
+    if (!EMAIL_PATTERN.test(values.email.trim())) {
       setFeedback({ severity: 'warning', text: '이메일 형식을 확인해주세요.' });
       return;
     }
@@ -123,10 +123,12 @@ export default function GuestbookForm({ onSubmit }) {
         </Grid>
         <Grid size={{ xs: 12, md: 4 }}>
           <TextField
-            label="이메일 (선택, 비공개)"
+            label="이메일"
             type="email"
+            placeholder="비공개"
             value={values.email}
             onChange={handleChange('email')}
+            required
             fullWidth
             size="small"
             slotProps={{ htmlInput: { maxLength: 100 } }}
@@ -243,7 +245,7 @@ export default function GuestbookForm({ onSubmit }) {
           <Button
             type="submit"
             variant="contained"
-            disabled={isSubmitting || !values.name.trim() || !values.message.trim()}
+            disabled={isSubmitting || !values.name.trim() || !values.email.trim() || !values.message.trim()}
             sx={{
               px: 4,
               bgcolor: 'var(--color-primary)',
