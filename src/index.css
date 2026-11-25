@@ -25,6 +25,12 @@
   --color-warm-bg: #FFF3E3;
   --color-accent-yellow: #FFB938;
 
+  /* 방명록 메모지 색상 */
+  --color-note-1: #FFF2B8;
+  --color-note-2: #FFE1C7;
+  --color-note-3: #FFEBD0;
+  --color-note-4: #FFF8D6;
+
   /* Interactive Colors */
   --color-button-primary: #1E1E3F;
   --color-button-hover: #34345E;
@@ -53,6 +59,11 @@
 
     --color-warm-bg: #2A2118;
     --color-accent-yellow: #FFC857;
+
+    --color-note-1: #3A3220;
+    --color-note-2: #3D2A1E;
+    --color-note-3: #36291C;
+    --color-note-4: #3B3523;
 
     --color-button-primary: #FC6112;
     --color-button-hover: #FF7A30;

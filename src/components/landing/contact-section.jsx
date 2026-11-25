@@ -54,7 +54,7 @@ export default function ContactSection() {
         <Divider sx={{ my: { xs: 4, md: 5 }, borderColor: 'var(--color-border)' }} />
 
         <Box component="h3" sx={headingSx}>방명록</Box>
-        <Box sx={{ p: { xs: 2, md: 3 }, mb: 3, bgcolor: 'var(--color-warm-bg)', borderRadius: 2 }}>
+        <Box sx={{ mb: { xs: 4, md: 5 } }}>
           <GuestbookForm onSubmit={addEntry} />
         </Box>
 
