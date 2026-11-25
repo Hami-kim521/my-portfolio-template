@@ -30,6 +30,10 @@
   --color-note-2: #FFE1C7;
   --color-note-3: #FFEBD0;
   --color-note-4: #FFF8D6;
+  --color-note-5: #FFE3DC;
+  --color-note-6: #FFD9A0;
+  --color-note-7: #F6E7CB;
+  --color-note-8: #FFEFA8;
 
   /* Interactive Colors */
   --color-button-primary: #1E1E3F;
@@ -64,6 +68,10 @@
     --color-note-2: #3D2A1E;
     --color-note-3: #36291C;
     --color-note-4: #3B3523;
+    --color-note-5: #3E2A27;
+    --color-note-6: #45331C;
+    --color-note-7: #382F22;
+    --color-note-8: #403818;
 
     --color-button-primary: #FC6112;
     --color-button-hover: #FF7A30;

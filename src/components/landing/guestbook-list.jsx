@@ -4,10 +4,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { keyframes } from '@mui/material/styles';
 
 import { formatDate } from '../../utils/format-date';
-
-/** 메모지 색상 / 기울기 (id 기준으로 순환해서 항상 같은 모양 유지) */
-const NOTE_COLORS = ['var(--color-note-1)', 'var(--color-note-2)', 'var(--color-note-3)', 'var(--color-note-4)'];
-const NOTE_TILTS = [-1.2, 0.9, -0.6, 1.1];
+import { getNoteStyle } from '../../utils/note-style';
 
 const popIn = keyframes`
   from { opacity: 0; transform: translateY(12px) scale(0.96); }
@@ -53,11 +50,11 @@ export default function GuestbookList({ entries, isLoading = false, hasMore = fa
           p: 0,
           pt: 1,
           columnCount: { xs: 1, sm: 2, md: 3 },
-          columnGap: 2.5,
+          columnGap: 3,
         }}
       >
         {entries.map((entry) => {
-          const tilt = NOTE_TILTS[entry.id % NOTE_TILTS.length];
+          const note = getNoteStyle(entry.id);
           return (
             <Box
               key={entry.id}
@@ -65,15 +62,17 @@ export default function GuestbookList({ entries, isLoading = false, hasMore = fa
               sx={{
                 position: 'relative',
                 breakInside: 'avoid',
-                mb: 2.5,
+                mb: `${note.gap}px`,
                 p: 2.5,
                 pt: 3,
                 textAlign: 'left',
-                bgcolor: NOTE_COLORS[entry.id % NOTE_COLORS.length],
+                backgroundColor: note.color,
+                backgroundImage: note.pattern.image,
+                backgroundSize: note.pattern.size,
                 border: '1px solid rgba(0, 0, 0, 0.06)',
                 borderRadius: '4px',
                 boxShadow: '0 2px 6px rgba(0, 0, 0, 0.08)',
-                transform: `rotate(${tilt}deg)`,
+                transform: `translate(${note.offsetX}px, ${note.offsetY}px) rotate(${note.tilt}deg)`,
                 transition: 'transform 0.2s ease, box-shadow 0.2s ease',
                 animation: `${popIn} 0.35s ease-out`,
                 '@media (prefers-reduced-motion: reduce)': { animation: 'none', transition: 'none' },
@@ -86,11 +85,11 @@ export default function GuestbookList({ entries, isLoading = false, hasMore = fa
                   content: '""',
                   position: 'absolute',
                   top: -9,
-                  left: '50%',
+                  left: `${note.tapeLeft}%`,
                   width: 56,
                   height: 18,
-                  transform: 'translateX(-50%) rotate(-2deg)',
-                  bgcolor: 'var(--color-accent-yellow)',
+                  transform: `translateX(-50%) rotate(${note.tapeTilt}deg)`,
+                  bgcolor: note.tapeColor,
                   opacity: 0.55,
                   borderRadius: '2px',
                 },
