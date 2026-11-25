@@ -38,18 +38,18 @@ export default function useGuestbook() {
       .from('guestbook_entries')
       .select(SELECT_COLUMNS)
       .order('created_at', { ascending: false })
-      .range(from, from + PAGE_SIZE - 1);
+      .range(from, from + PAGE_SIZE); // 한 개 더 요청해서 다음 글이 있는지 확인
     if (error) throw error;
-    return data;
+    return { items: data.slice(0, PAGE_SIZE), hasMore: data.length > PAGE_SIZE };
   }, []);
 
   useEffect(() => {
     let isCancelled = false;
     fetchPage(0)
-      .then((data) => {
+      .then(({ items, hasMore: isMore }) => {
         if (isCancelled) return;
-        setEntries(data);
-        setHasMore(data.length === PAGE_SIZE);
+        setEntries(items);
+        setHasMore(isMore);
       })
       .catch(() => {
         if (!isCancelled) setErrorMessage('방명록을 불러오지 못했어요. 잠시 후 다시 시도해주세요.');
@@ -65,9 +65,9 @@ export default function useGuestbook() {
   /** 다음 페이지를 이어서 불러온다. */
   const loadMore = useCallback(async () => {
     try {
-      const data = await fetchPage(entries.length);
-      setEntries((prev) => [...prev, ...data]);
-      setHasMore(data.length === PAGE_SIZE);
+      const { items, hasMore: isMore } = await fetchPage(entries.length);
+      setEntries((prev) => [...prev, ...items]);
+      setHasMore(isMore);
     } catch {
       setErrorMessage('방명록을 불러오지 못했어요. 잠시 후 다시 시도해주세요.');
     }
@@ -89,9 +89,9 @@ export default function useGuestbook() {
       photo_url: photoUrl,
     });
     if (error) throw error;
-    const data = await fetchPage(0);
-    setEntries(data);
-    setHasMore(data.length === PAGE_SIZE);
+    const { items, hasMore: isMore } = await fetchPage(0);
+    setEntries(items);
+    setHasMore(isMore);
     setErrorMessage('');
   }, [fetchPage]);
 
