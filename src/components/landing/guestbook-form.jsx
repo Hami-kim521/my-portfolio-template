@@ -11,7 +11,10 @@ import TextField from '@mui/material/TextField';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
-const EMOJIS = ['😊', '🧡', '👍', '🎉', '🔥', '✨', '🙌', '☕'];
+const EMOJIS = [
+  '😊', '😄', '😆', '🥰', '😍', '🤩', '🥳', '😎',
+  '😌', '🤗', '🥹', '😢', '😅', '🤔', '😮', '😴',
+];
 const MAX_PHOTO_SIZE = 5 * 1024 * 1024;
 const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
 const MAX_MESSAGE = 500;
