@@ -1,18 +1,71 @@
-import SectionCard from '../ui/section-card';
+import Alert from '@mui/material/Alert';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Divider from '@mui/material/Divider';
+
+import useGuestbook from '../../hooks/use-guestbook';
+import ContactInfo from './contact-info';
+import GuestbookForm from './guestbook-form';
+import GuestbookList from './guestbook-list';
+
+const headingSx = {
+  m: 0,
+  mb: 2,
+  fontSize: { xs: '1.15rem', md: '1.3rem' },
+  lineHeight: 1.3,
+  color: 'var(--color-text-secondary)',
+};
 
 /**
- * ContactSection 컴포넌트 - Home 페이지의 Contact 섹션
+ * ContactSection 컴포넌트 - Home 페이지의 Contact 섹션 (연락처 위, 방명록 아래)
  *
  * Example usage:
  * <ContactSection />
  */
 export default function ContactSection() {
+  const { entries, isLoading, hasMore, errorMessage, loadMore, addEntry } = useGuestbook();
+
   return (
-    <SectionCard
+    <Card
+      component="section"
       id="contact"
-      title="Contact"
-      description="여기는 Contact 섹션입니다. 연락처, SNS, 간단한 메시지 폼이 들어갈 예정입니다."
-      isAlt
-    />
+      variant="outlined"
+      sx={{
+        width: '100%',
+        bgcolor: 'var(--color-bg-secondary)',
+        borderColor: 'var(--color-border)',
+        borderTop: '2px solid var(--color-primary)',
+        borderRadius: 2,
+      }}
+    >
+      <CardContent sx={{ py: { xs: 4, md: 6 }, px: { xs: 2, md: 4 } }}>
+        <Box sx={{ textAlign: 'center', mb: { xs: 3, md: 4 } }}>
+          <Box component="h2" sx={{ ...headingSx, mb: 1, fontSize: { xs: '1.5rem', md: '2rem' } }}>
+            Contact
+          </Box>
+          <Box component="p" sx={{ m: 0, color: 'var(--color-text-muted)' }}>
+            편하게 연락 주시거나 방명록에 한 줄 남겨주세요.
+          </Box>
+        </Box>
+
+        <ContactInfo />
+
+        <Divider sx={{ my: { xs: 4, md: 5 }, borderColor: 'var(--color-border)' }} />
+
+        <Box component="h3" sx={headingSx}>방명록</Box>
+        <Box sx={{ p: { xs: 2, md: 3 }, mb: 3, bgcolor: 'var(--color-warm-bg)', borderRadius: 2 }}>
+          <GuestbookForm onSubmit={addEntry} />
+        </Box>
+
+        {errorMessage && <Alert severity="error" sx={{ mb: 2 }}>{errorMessage}</Alert>}
+        <GuestbookList
+          entries={entries}
+          isLoading={isLoading}
+          hasMore={hasMore}
+          onLoadMore={loadMore}
+        />
+      </CardContent>
+    </Card>
   );
 }

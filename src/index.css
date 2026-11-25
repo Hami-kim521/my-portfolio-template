@@ -21,6 +21,10 @@
   /* Border Colors */
   --color-border: #D9D9DE;
 
+  /* Warm Colors (Contact 섹션) */
+  --color-warm-bg: #FFF3E3;
+  --color-accent-yellow: #FFB938;
+
   /* Interactive Colors */
   --color-button-primary: #1E1E3F;
   --color-button-hover: #34345E;
@@ -46,6 +50,9 @@
     --color-text-muted: #9A9AA8;
 
     --color-border: #33334A;
+
+    --color-warm-bg: #2A2118;
+    --color-accent-yellow: #FFC857;
 
     --color-button-primary: #FC6112;
     --color-button-hover: #FF7A30;
