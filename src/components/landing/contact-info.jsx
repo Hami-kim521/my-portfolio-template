@@ -9,9 +9,9 @@ import IconButton from '@mui/material/IconButton';
 
 /** TODO: 실제 연락처 / SNS 주소로 교체하세요. */
 const CONTACTS = [
-  { id: 'email', Icon: EmailOutlinedIcon, text: 'hello@example.com', href: 'mailto:hello@example.com' },
-  { id: 'phone', Icon: PhoneOutlinedIcon, text: '010-0000-0000', href: 'tel:01000000000' },
-  { id: 'location', Icon: LocationOnOutlinedIcon, text: 'Seoul, Korea', href: null },
+  { id: 'email', Icon: EmailOutlinedIcon, text: 'kimhami521@naver.com', href: 'mailto:kimhami521@naver.com' },
+  { id: 'phone', Icon: PhoneOutlinedIcon, text: '010-9205-6747', href: 'tel:01092056747' },
+  { id: 'location', Icon: LocationOnOutlinedIcon, text: '부산', href: null },
 ];
 
 const SOCIALS = [
@@ -77,13 +77,12 @@ export default function ContactInfo() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={label}
-            size="small"
             sx={{
               color: 'var(--color-text-muted)',
               '&:hover': { color: 'var(--color-primary)', bgcolor: 'var(--color-warm-bg)' },
             }}
           >
-            <Icon fontSize="small" />
+            <Icon sx={{ fontSize: 26 }} />
           </IconButton>
         ))}
       </Box>

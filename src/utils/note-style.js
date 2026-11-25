@@ -16,18 +16,18 @@ const INK = (alpha) => `rgba(128, 128, 128, ${alpha})`;
 /** 메모지 패턴 (단색 포함) */
 const NOTE_PATTERNS = [
   { image: 'none', size: 'auto' },
-  { image: `radial-gradient(${INK(0.28)} 1.5px, transparent 1.6px)`, size: '14px 14px' },
-  { image: `repeating-linear-gradient(45deg, ${INK(0.14)} 0 6px, transparent 6px 12px)`, size: 'auto' },
+  { image: `radial-gradient(${INK(0.16)} 1.5px, transparent 1.6px)`, size: '18px 18px' },
+  { image: `repeating-linear-gradient(45deg, ${INK(0.07)} 0 6px, transparent 6px 12px)`, size: 'auto' },
   {
-    image: `linear-gradient(${INK(0.2)} 1px, transparent 1px), linear-gradient(90deg, ${INK(0.2)} 1px, transparent 1px)`,
-    size: '16px 16px',
-  },
-  { image: `repeating-linear-gradient(transparent 0 23px, ${INK(0.28)} 23px 24px)`, size: 'auto' },
-  {
-    image: `conic-gradient(${INK(0.14)} 25%, transparent 0 50%, ${INK(0.14)} 0 75%, transparent 0)`,
+    image: `linear-gradient(${INK(0.1)} 1px, transparent 1px), linear-gradient(90deg, ${INK(0.1)} 1px, transparent 1px)`,
     size: '20px 20px',
   },
-  { image: `repeating-linear-gradient(90deg, ${INK(0.12)} 0 10px, transparent 10px 20px)`, size: 'auto' },
+  { image: `repeating-linear-gradient(transparent 0 27px, ${INK(0.14)} 27px 28px)`, size: 'auto' },
+  {
+    image: `conic-gradient(${INK(0.07)} 25%, transparent 0 50%, ${INK(0.07)} 0 75%, transparent 0)`,
+    size: '24px 24px',
+  },
+  { image: `repeating-linear-gradient(90deg, ${INK(0.06)} 0 10px, transparent 10px 20px)`, size: 'auto' },
 ];
 
 const TAPE_COLORS = ['var(--color-accent-yellow)', 'var(--color-primary-light)', 'var(--color-note-6)'];
