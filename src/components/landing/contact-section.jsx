@@ -45,7 +45,7 @@ export default function ContactSection() {
             Contact
           </Box>
           <Box component="p" sx={{ m: 0, color: 'var(--color-text-muted)' }}>
-            편하게 연락 주시거나 방명록에 한 줄 남겨주세요.
+            좋은 이야기를 나눌 준비가 되어 있어요. 편하게 말을 걸어주세요.
           </Box>
         </Box>
 
